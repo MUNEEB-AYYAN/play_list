@@ -1,34 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react'
+// import Navbar from './components/section1/Navbar'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+
+  const [num, setNum] = useState({user:'Muneeb',Age:24})
+
+  const btnClick = () => {
+    const newNum = {...num}
+    console.log(newNum);
+    newNum.user = 'Ali'
+    newNum.age = 30
+    setNum(newNum)
+
+  }
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='flex flex-col items-center justify-center h-screen bg-gray-800 text-white'>
+      {/* <Navbar /> */}
+      <h1 className='text-3xl font-bold m-2 underline'>
+        Hello world!
+      </h1>
+      <h2>{num.user} - {num.Age}</h2>
+      <button className=' bg-gray-200 text-black px-4 py-2 rounded-lg hover:bg-gray-600'
+        onClick={btnClick}>Click Me
+      </button>
+
+
+      {/* <h2 className='m-2 font-semibold text-rose-200 text-3xl'>{num}</h2>
+      <div className='flex flex-row gap-4'>
+
+        <button className=' bg-gray-200 text-black px-4 py-2 rounded-lg hover:bg-gray-600'
+        onClick={() => setNum(num + 1)}>Increment</button>
+        <button className=' bg-gray-200 text-black px-4 py-2 rounded-lg hover:bg-gray-600'
+        onClick={() => setNum(num - 1)}>Decrement</button>
+        <button className=' bg-gray-200 text-black px-4 py-2 rounded-lg hover:bg-gray-600'
+        onClick={() => setNum(num +5)}>Jump By 5</button>
+       </div>
+ */}
+
+
+
+
+    </div>
   )
 }
 
