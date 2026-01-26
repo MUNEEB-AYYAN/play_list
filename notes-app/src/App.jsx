@@ -1,10 +1,9 @@
-import React from "react";
 import { useState } from "react";
 import { X } from "lucide-react";
 
 const App = () => {
 
-  const [notes, setNotes] =useState({
+  const [notes, setNotes] = useState({
     heading: "",
     details: "",
   });
@@ -20,10 +19,10 @@ const App = () => {
 
     console.log(notes);
 
-    // setNotes({
-    //   heading: "",
-    //   details: "",
-    // });
+    setNotes({
+      heading: "",
+      details: "",
+    });
   };
 
   const changeHandler = (e) => {
@@ -68,15 +67,15 @@ const App = () => {
 
       <div className="lg:w-1/2 bg-gray-300 p-10">
         <h1 className="text-4xl font-bold underline text-center mt-10">Your Notes</h1>
-        <div className="flex flex-wrap p-4 justify-center gap-5 mt-6 overflow-auto h-[90%]">
+        <div className="flex flex-wrap p-4 gap-5 mt-6 overflow-auto h-[90%]">
           {/* <div className="flex flex-wrap border-2 border-cyan-500 rounded-xl p-4 w-80 h-full"> */}
           {tasks.map((notes, index) => (
-            <div key={index} className="h-52 w-1/3 rounded-2xl bg-pink-600 p-4 flex flex-col justify-center">
+            <div key={index} className="h-52 w-1/3 relative rounded-2xl bg-pink-600 p-4 flex flex-col space-y-4">
+              <h2 className="text-2xl text-white font-semibold ">{notes.heading}</h2>
+              <p className="text-xl  text-white">{notes.details}</p>
               <h1 onClick={()=>{
                 deleteHandler(index);
-              }} className="cursor-pointer"><X /></h1>
-              <h2 className="text-2xl font-semibold underline mb-2">{notes.heading}</h2>
-              <p className="text-lg">{notes.details}</p>
+              }} className="cursor-pointer bg-red-800 absolute bottom-2 left-18 p-1 rounded text-center text-white">Delete</h1>
             </div>
           ))}
             {/* <div className="h-52 w-40 rounded-2xl bg-pink-600"></div> */}
