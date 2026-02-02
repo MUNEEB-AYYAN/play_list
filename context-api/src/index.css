@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+
+
+.light {
+    background-color: aqua;
+    color: black;
+  }
+
+  .dark {
+    background: #000;
+    color: white;
+  }
+
